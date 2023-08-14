@@ -17,4 +17,14 @@ let o2: O1 & O2 = { name: "1", age: 1 };
 type Num = 1 | 2;
 let num: Num = 2;
 
+// 使用never避免出现未来扩展新的类没有对应类型的实现
+const fn = (params: string | number) => {
+  if (typeof params === "string") {
+  } else if (typeof params === "number") {
+  } else {
+    // never
+    let d = params;
+  }
+};
+
 export {};
