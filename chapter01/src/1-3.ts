@@ -11,7 +11,14 @@ let str: string | number = 1;
 // 交叉类型
 type O1 = { name: string };
 type O2 = { age: number };
+interface I1 {
+  name: string;
+}
+interface I2 {
+  age: number;
+}
 let o2: O1 & O2 = { name: "1", age: 1 };
+let i1: I1 & I2 = { name: "1", age: 1 };
 
 // 字面量数据类型
 type Num = 1 | 2;
@@ -26,5 +33,10 @@ const fn = (params: string | number) => {
     let d = params;
   }
 };
+
+// any=>任意， 可以是任何类型的父类，可以是任何类型的子类
+// let books:Books[] = data as any; // 后端数据转前端类型
+
+// unknown=>不明确， 可以是任何类型的父类。不能拿unknown 类型的变量获取任何属性和方法
 
 export {};
