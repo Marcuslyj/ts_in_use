@@ -17,4 +17,17 @@ type ObjKeysType<T extends object, K> = K extends keyof T ? K : never;
 type TestObjKeysType = ObjKeysType<ObjTyp, "username">;
 let k: TestObjKeysType = "username";
 
+// 重载签名
+function searchMsg(condition: string): string;
+function searchMsg(condition: number): number;
+function searchMsg(condition: string | number): string | number {
+  if (typeof condition === "string") {
+    return "abc";
+  } else {
+    return 123;
+  }
+}
+searchMsg("qwe").replace("q", "");
+searchMsg(12).toFixed();
+
 export {};
